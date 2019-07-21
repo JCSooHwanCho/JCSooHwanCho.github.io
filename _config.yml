@@ -116,7 +116,7 @@ gtm: "GTM-KB6WTVC"
 # disqus: ""
 
 # If you want to use JustComments fill with the API Key
-just-comments: "e555c783-039e-4880-965e-d3237053c50d"
+#just-comments: ""
 
 # To use Facebook Comments, fill in a Facebook App ID
 # fb_comment_id: ""
