@@ -2,7 +2,7 @@
 layout: post
 title: Swift API Design Guidelines 톺아보기 - 관례, 특수 규정
 comments: true
-tags: [iOS,Swift,Apple, 부스트코스]
+tags: [iOS 프로그래밍,Swift,Apple, 부스트코스]
 ---
 
 [지난번 포스트](https://jcsoohwancho.github.io/2019-07-19-Swift-API-Design-Guidelines-톺아보기-기초,-이름짓기/)에 이어서 계속해서 가이드라인에 대해서 보도록 하자.
