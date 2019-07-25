@@ -120,7 +120,7 @@ textField,textView를 다루다가보니 키보드가 화면을 가리는 경우
         func becomeFirstResponder() -> Bool //호출한 뷰가 first responder가 되면 true,되지 않으면 false
         ```  
 
-    2. UIKit은 현재 First Responder 상태인 뷰에게 First Responder 권한을 내려놓을 것을 요청합니다. 요청을 받은 뷰는 First Responder 권한을 내려놓을 수 있는 지 여부를 체크한 뒤 가능하면 권한을 내려놓고, 아니라면 거절하게 됩니다. 만약 권한을 내려놓는다면 해당 View에 의해 띄워졌던 시스템 키보드(혹은 inputView)는 내려가게 됩니다. 
+    2. UIKit은 현재 First Responder 상태인 뷰에게 First Responder 권한을 내려놓을 것을 요청합니다. 요청을 받은 뷰는 First Responder 권한을 내려놓을 수 있는 지 여부를 체크합니다. 
 
         ```swift
         var canResignFirstResponder: Bool { get } //First Responder 권한을 내려놓을 수 있는지 여부, 기본값은 true
@@ -128,7 +128,7 @@ textField,textView를 다루다가보니 키보드가 화면을 가리는 경우
         func resignFirstResponder() -> Bool //First Responder 권한을 내려놓는다. 성공하면 true, 실패하면 false를 반환한다. 기본값은 true
         ```  
 
-    3. 2번에서 First Responder 권한을 내려놓게 된다면, First Responder가 되려는 View의  canBecomeFirstResponder 프로퍼티를 호출해서 가능하다면 First Responder가 되고, 아니면 되지 않고 끝납니다.  
+    3. 2번에서 true를 반환한다면, First Responder가 되려는 View의  canBecomeFirstResponder 프로퍼티를 호출해서 true를 반환한다면 기존 First Responder는 권한을 내려놓고, 새로운 View가 First Responder가 됩니다. 아니라면 아무 일도 일어나지 않습니다. 이 때 권한을 내려놓을 때 이전 First Responder에 의해 띄워졌던 시스템 키보드(혹은 inputView)는 내려가게 됩니다. 
 
     4. First Responder가 되면, 이어지는 이벤트들이 해당 뷰로 전달되게 되고 해당 뷰가 inputView를 가지고 있다면 UIKit은 inputView를, 없다면 시스템 키보드를 띄워주게 됩니다.
 
