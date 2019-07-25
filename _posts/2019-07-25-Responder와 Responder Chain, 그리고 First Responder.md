@@ -102,7 +102,8 @@ textField,textView를 다루다가보니 키보드가 화면을 가리는 경우
 
 ---  
 
-* *First Responder에 대해서* 
+* *First Responder에 대해서*   
+
     터치 이벤트의 경우는 터치가 일어난 뷰가 곧 First Responder가 되고 이는 어떤 뷰여도 가능합니다. 하지만 다른 이벤트들은 포커스를 받고 있거나(UIPress), UIKit에 의해 First Responder로 지정이 되어있는 상태여야 합니다. 오늘은 그 중에서 후자인  UIKit이 어떻게 First Responder를 지정하는지 확인해보고자 합니다.  
     First Responder가 되면 거의 모든 이벤트들을 우선적으로 받게 됩니다. 거기다가 타겟이 없는 상태의 액션 메시지도 받을 수 있는 상태가 됩니다.
     어떤 뷰가 First Responder가 되기 위해서는 해당 뷰가 First Responder가 될 의지가 있음을 알릴 필요가 있는데 이는 다음 프로퍼티를 통해 이루어집니다.
