@@ -3,6 +3,7 @@ layout: post
 title: Swift API Design Guidelines 톺아보기 - 기초,이름 짓기
 comments: true
 tags: [iOS 프로그래밍,Swift,Apple, 부스트코스]
+category: [iOS]
 ---
 블로그를 만들어야지 생각만 하다가 이번 [부스트코스 에이스](https://apply.connect.or.kr/connect/applyDetail?annoId=20003033&page=1)에 선정이 된 기념으로 진짜 마음먹고 블로그를 시작해보기로 했다.
 시작은 복잡한 것을 하기 보담도 Apple의 문서를 읽은 내용을 정리하거나, 프로젝트를 수행하며 해결했던 여러 문제들에 대한 글을 간결하게 써보고자 한다.

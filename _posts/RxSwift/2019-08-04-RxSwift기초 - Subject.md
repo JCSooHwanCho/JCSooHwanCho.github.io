@@ -3,6 +3,7 @@ layout: post
 title: RxSwift기초 - Subject
 comments: true
 tags: [iOS 프로그래밍,Swift,Apple, ReactiveX,RxSwift]
+category: [RxSwift]
 ---  
 
 RxSwift 스터디를 준비하면서 정리한 내용을 블로그에도 올리고자 합니다. 오늘은 Subject에 대해서 알아보도록 하겠습니다.

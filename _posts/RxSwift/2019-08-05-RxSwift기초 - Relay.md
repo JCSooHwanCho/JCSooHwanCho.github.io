@@ -3,6 +3,7 @@ layout: post
 title: RxSwift기초 - Relay
 comments: true
 tags: [iOS 프로그래밍,Swift,Apple, ReactiveX,RxSwift]
+category: [RxSwift]
 ---  
 
 Subject에 이어서 오늘은 Relay에 대해서 알아보도록 하겠습니다.

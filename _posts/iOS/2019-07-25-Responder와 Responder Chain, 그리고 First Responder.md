@@ -3,6 +3,7 @@ layout: post
 title: Responder와 Responder Chain, 그리고 First Responder
 comments: true
 tags: [iOS 프로그래밍,Swift,Apple, 부스트코스]
+category: [iOS]
 ---  
 
 textField,textView를 다루다가보니 키보드가 화면을 가리는 경우가 생겼습니다. 엔터키를 눌러도, 키보드 바깥을 눌러도 아무런 반응이 없어서, 관련 키워드를 찾아보다가 First Responder라는 개념을 알게 되었습니다. 해당 개념을 잘 사용해서 문제는 해결했지만, First Responder를 찾다 보니 Responder라는 개념도 알아둘 필요가 있다는 생각이 들었습니다. 그래서 관련 글을 찾아 정리해보았습니다.

@@ -3,6 +3,7 @@ layout: post
 title: ModalPresentationStyle, TransitionStyle 파헤치기
 comments: true
 tags: [iOS 프로그래밍,Swift,Apple, 부스트코스]
+category: [iOS]
 ---  
 
 지난번 [Segue 파헤치기](../2019-07-28-Segue-파헤치기/)에서 못 다룬 부분을 마저 다뤄보고자 합니다. 바로 ModalPresentationStyle과 ModalTransitionStyle에 대한 부분입니다. 이 두가지 옵션은 화면이 어떤 방식으로 뜰 지, 어떻게 전환될지를 결정합니다.  
