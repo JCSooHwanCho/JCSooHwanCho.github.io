@@ -1,7 +1,7 @@
 # --- General options --- #
 
 # Name of website
-title: "Joshua's development life log"
+title: "Joshua's DevLife Log"
 
 # Short description of your site
 description: "iOS,Swift,Problem Solving, Software Engineering..."
@@ -22,6 +22,7 @@ baseurl: ""
 navbar-links:
   Home: "/"
   Swift:
+    - Basics: "/category/SwiftBasics"
     - iOS: "/category/iOS"
     - RxSwift: "/category/RxSwift"
 
