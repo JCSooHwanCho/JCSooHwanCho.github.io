@@ -250,8 +250,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-category-pages
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
 
 category_path: "category"
 category_layout: "category.html"
