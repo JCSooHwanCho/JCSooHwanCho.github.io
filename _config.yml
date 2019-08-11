@@ -250,7 +250,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-category-pages
-  - jekyll-sitemap
   
 category_path: "category"
 category_layout: "category.html"
