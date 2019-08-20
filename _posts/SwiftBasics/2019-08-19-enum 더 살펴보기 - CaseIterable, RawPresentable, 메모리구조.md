@@ -60,12 +60,14 @@ category: [SwiftBasics]
       * String
         * [ExpressibleByStringLiteral](https://developer.apple.com/documentation/swift/expressiblebystringliteral) : 문자열 리터럴로 초기화 가능한 타입을 나타냅니다.  
 
-    위 프로토콜을 구현한 뒤 하나 더 적용해야 할 프로토콜이 있는데, 바로 [Equatable](https://developer.apple.com/documentation/swift/equatable) 입니다. 
+    위 프로토콜을 구현한 뒤 하나 더 적용해야 할 프로토콜이 있는데, 바로 [Hashable](https://developer.apple.com/documentation/swift/hashable) 입니다. 
+
+    > 원래의 원칙은 Hashable 을 구현하는 것입니다만, [Equatable](https://developer.apple.com/documentation/swift/equatable) 만 구현해도 동작은 합니다.
 
     위 내용을 따라 예제를 구현해보면 다음과 같습니다. 숫자를 입력 받아 10으로 나눈 몫과 나머지를 저장하는 클래스입니다.
 
     ```swift
-    struct SomeStruct: Equatable, ExpressibleByIntegerLiteral {
+    struct SomeStruct: Hashable, ExpressibleByIntegerLiteral {
         typealias IntegerLiteralType = Int
 
         static func == (lhs: SomeStruct, rhs: SomeStruct) -> Bool {
@@ -78,6 +80,11 @@ category: [SwiftBasics]
         init(integerLiteral value: IntegerLiteralType) {
             a = value / 10
             b = value % 10
+        }
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(a);
+            hasher.combine(b);
         }
     }
 
