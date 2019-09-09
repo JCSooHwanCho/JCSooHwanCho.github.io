@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RxSwift연산자-skip
+title: RxSwift연산자-map
 comments: true
 tags: [iOS 프로그래밍,Swift,Apple, ReactiveX,RxSwift]
 category: [RxSwift]
