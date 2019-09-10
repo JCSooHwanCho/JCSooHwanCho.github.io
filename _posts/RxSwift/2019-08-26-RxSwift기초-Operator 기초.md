@@ -12,7 +12,7 @@ RxSwift를 이루는 근본적인 요소를 뽑으라면 Observable, Observer, O
 
 ---  
 
-Rxswift에서 Operator(연산자)는 Observable을 다루는 메소드들을 통칭하는 용어입니다. 입력의 형태는 다양하여 일반화 할 수 없지만, **공통적으로 Observable을 반환한다는 공통점이 있습니다.** Operator를 카테고리로 분류해보자면 다음과 같습니다.
+Rxswift에서 Operator(연산자)는 Observable을 다루는 메소드들을 통칭하는 용어입니다. 입력의 형태는 다양하여 일반화 할 수 없지만, **공통적으로 Observable을 반환한다는 공통점이 있습니다.** Operator를 카테고리로 분류해보자면 다음과 같습니다. Operator들은 이들 중 1개 이상의 카테고리에 속해있습니다.
 
 > 해당 분류는 [reactiveX 공식 사이트](http://reactivex.io)를 참조하였습니다.
 
@@ -22,7 +22,7 @@ Rxswift에서 Operator(연산자)는 Observable을 다루는 메소드들을 통
 4. Combining Operator(합성 연산자) : 두개 이상의 Observable 을 하나의 Observable로 만들어줍니다.
 5. Error Handling Operator(에러 처리 연산자) : error 이벤트가 나왔을 때, 에러를 처리할 수 있도록 흐름을 잠시 바꿔줍니다.
 6. Observable Utility Operator(유틸리티 연산자) : Observable에 적용할 수 있는 유용한 기능들을 제공합니다.
-7. Conditional and Boolean Operator(조건 연산자) : Observable의 이벤트 혹은 Observable을 판단하고 비교할 수 있
+7. Conditional and Boolean Operator(조건 연산자) : Observable의 이벤트 혹은 Observable을 판단하는 방법을 제공합니다.
 8. Mathmetical and Aggregate Operator(수학, 집합 연산자) : Observable의 전체 이벤트를 대상으로 하는 연산자들입니다.
 9. Connectable Observable Operator : 구독시 일어나는 행동들을 좀 더 세세하게 지정할 수 있게하는 Observable을 다루는 연산입니다.
 10. Convert Observable : Observable을 다른 자료구조로 바꾸는 연산자입니다.
