@@ -21,17 +21,17 @@ OperationQueue는 문자 그대로 보면 "Operation이 담긴 Queue"입니다. 
 
   > Foundation 프레임워크는 원래 2개의 구체 Opearition 클래스를 제공합니다. 하나는 Selector를 기반으로 작동하는 [NSInvocationOperation](https://developer.apple.com/documentation/foundation/nsinvocationoperation), 다른 하나는 클로저를 기반으로 동작하는 [BlockOperation](https://developer.apple.com/documentation/foundation/blockoperation) 입니다. 하지만 Swift 버전에서는 BlockOperation만 제공하기 때문에, NSInvocationOperation 에 대한 설명은 생략합니다. 
 
-    Operation 객체가 제공하는 기능은 다음과 같습니다.
+  Operation 객체가 제공하는 기능은 다음과 같습니다.
 
-    * Operation객체 간의 그래프 기반의 의존성을 지원합니다. 
+  * Operation객체 간의 그래프 기반의 의존성을 지원합니다. 
 
-    * Completion Block을 지원합니다. Operation의 메인 작업이 끝나면 실행됩니다.
+  * Completion Block을 지원합니다. Operation의 메인 작업이 끝나면 실행됩니다.
 
-    * 실행 상태를 모니터링할 수 있도록 KVO 프로그래밍을 지원합니다.
+  * 실행 상태를 모니터링할 수 있도록 KVO 프로그래밍을 지원합니다.
 
-    * 우선순위를 줄 수 있어, 상대적인 실행 순서를 줄 수 있습니다.
+  * 우선순위를 줄 수 있어, 상대적인 실행 순서를 줄 수 있습니다.
 
-    * Operation을 중간에 멈출 수 있는 기능을 제공합니다.
+  * Operation을 중간에 멈출 수 있는 기능을 제공합니다.
 
 ## 동기적 Operation vs 비동기적 Operation  
    Operation 객체를 주로 Queue에 넣어서 사용하지만, Operation 객체의 start() 메소드를 호출해서 수동으로 실행시킬 수도 있습니다. 하지만 이렇게 하면 Operation이 동시적으로 실행되는 것이 보장되지 않습니다. Operation 객체의 [isAsynchronous](https://developer.apple.com/documentation/foundation/operation/1408275-isasynchronous) 프로퍼티를 참조하면 이 Operation이 동시적으로 수행되는지 여부를 알 수 있는데, 기본 구현은 false입니다.(즉, 동시적으로 수행되지 않습니다.)
