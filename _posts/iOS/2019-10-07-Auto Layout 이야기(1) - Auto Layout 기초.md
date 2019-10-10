@@ -32,7 +32,7 @@ category: [iOS]
 
     Auto Layout은 이러한 frame 기반 레이아웃 패러다임을 뷰 간의 관계(RelationShip) 기반으로 변화시켰습니다. Auto Layout은 뷰 간의 관계를 정의한 Constraint(제한)의 모음으로 정의되며, Auto Layout은 외부적, 내부적 변화에 따라 뷰의 사이즈와 위치를 Constraint를 만족하도록 자동으로 계산해줍니다.   
 
-* Auto Layout의 원리
+* **Auto Layout의 원리**  
     Auto Layout은 Constraint의 모음이며, 이 Constraint들은 1차 방정식(혹은 부등식)들입니다. 즉 Auto Layout은 연립방정식(혹은 부등식)의 형태이며, 이 연립식들이 유일한 해를 가지도록 정의하는 것이 프로그래머의 목표입니다. 
 
     ![AutoLayout Formula]({{"/img/AutoLayout/AutoLayout_Formula.png"}}){: .center-block :}  
