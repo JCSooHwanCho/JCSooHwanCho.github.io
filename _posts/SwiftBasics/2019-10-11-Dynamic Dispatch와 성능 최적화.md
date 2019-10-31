@@ -33,7 +33,7 @@ object.someMethod() // Parent의 someMethod를 호출할 것인가, Child의 som
 
 2) Dynamic Dispatch(Indirect Call): 변수의 실제 타입의 맞춰서 메소드와 프로퍼티를 호출합니다. 코드상으로는 이것이 드러나지 않기 때문에 실제 참조될 요소는 런타임에 결정됩니다. 어떤 서브클래스가 들어와도 실제 타입에 맞는 요소를 참조하기 때문에 다형성 활용에 유리합니다. 다만, 런타임에 실제 참조할 요소를 찾는 과정이 있기 때문에(이 과정은 O(1)의 시간복잡도를 가지도록 구현되있습니다.) Static Dispatch보다 성능상에서 손해를 보게 된다는 단점이 있습니다. 
 
-Swift에서는 Dynamic Dispatch를 채택하였습니다. 일반적인 경우에는 Dynamic Dispatch가 편리하긴 하지만, 성능을 신경써야 하는 코드에서는 dynamic Dispatch의 오버헤드도 거슬릴 수 있습니다. 또한 Dynamic Dispatch의 가능성이 있는 코드에서는 컴파일러의 최적화가 제한되어버립니다. 따라서 swift는 Dynamic Dispath가 필요하지 않을 경우에 사용할 수 있는 3가지의 성능 최적화 방법을 제시합니다. 여기서는 이 방법들을 살펴보도록 하겠습니다.  
+Swift에서는 Dynamic Dispatch를 채택하였습니다.(아닌 경우도 있습니다. 이 경우에 대해서는 이후 포스트를 통해 더 살펴보도록 하겠습니다.) 일반적인 경우에는 Dynamic Dispatch가 편리하긴 하지만, 성능을 신경써야 하는 코드에서는 dynamic Dispatch의 오버헤드도 거슬릴 수 있습니다. 또한 Dynamic Dispatch의 가능성이 있는 코드에서는 컴파일러의 최적화가 제한되어버립니다. 따라서 swift는 Dynamic Dispath가 필요하지 않을 경우에 사용할 수 있는 3가지의 성능 최적화 방법을 제시합니다. 여기서는 이 방법들을 살펴보도록 하겠습니다.  
 
 > 이 포스트는 다음 블로그 포스트를 참고하여 작성되었습니다.  
 > [Increasing Performance by Reducing Dynamic Dispatch](https://developer.apple.com/swift/blog/?id=27)  
