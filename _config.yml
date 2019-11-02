@@ -27,7 +27,6 @@ navbar-links:
     - RxSwift: "/category/RxSwift"
   Algorithm: 
     - Background : "/category/Algorithm"
-    - Problems: "https://github.com/JCSooHwanCho/AlgorithmNote"
   etc:
     - CS: "/category/ComputerScience"
     - Life: "/category/Life"
