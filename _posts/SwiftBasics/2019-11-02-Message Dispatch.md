@@ -84,6 +84,17 @@ category: [SwiftBasics]
 
   3. NSObject와 그 서브클래스들을 이용할 때
      NSObject 자체가 뭔가 특별한 건 아닙니다. 하지만 그 근본적인 특성상 NSObject 자신과 그 구현이 대부분 Objective-C 런타임에 의존하고 있습니다. 이는 코드를 한꺼번에 수정하지 않고도 Swift에서 기존 프레임워크를 이용할 수 있도록 하는 장점이 있지만, 최적화 문제와 Swift로 처음 진입한 개발자에게는 혼란과 진입 장벽이 되기도 합니다.  
+  
+* **정리**  
+  
+  |         종류          |        Dispatch        |
+  | :-------------------: | :--------------------: |
+  | 값 타입(struct, enum) |         Static         |
+  |   참조 타입(class)    | Table, 가능하면 Static |
+  |       Protocol        |         Table          |
+  |       extension       |         Static         |
+  |     @objc dynamic     |        Message         |
+
 
 ---  
 
