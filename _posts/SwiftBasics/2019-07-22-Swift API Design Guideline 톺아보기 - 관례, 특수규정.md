@@ -54,6 +54,26 @@ category: [SwiftBasics]
         
         * 메소드들이 같은 의도를 가졌거나, 다른 영역에서 동작하는 경우에는 같은 이름을 공유할 수 있다.  
 
+            * 나쁜 예시  
+
+                ```swift
+                //동일한 영역에서 한 단어를 두가지 이상의 의미로 쓰고 있다.
+                extension Database {
+                // 데이터베이스의 모든 인덱스를 재구축한다.
+                func index() { ... }
+
+                // n번째 행을 반환한다.
+                func index(_ n: Int, inTable: TableID) -> TableRow { ... }
+                }
+
+                //반환 값만으로 오버로딩하면 타입 시스템에 혼란이 오게 된다.
+                extension Box {.
+                
+                func value() -> Int? { ... }
+                func value() -> String? { ... }
+                }
+                ```  
+
             * 좋은 예시  
 
                 ```swift  
@@ -75,27 +95,6 @@ category: [SwiftBasics]
                 func contains(_ sought: Element) -> Bool { ... }
                 }
                 ```  
-
-            * 나쁜 예시  
-
-                ```swift
-                //동일한 영역에서 한 단어를 두가지 이상의 의미로 쓰고 있다.
-                extension Database {
-                // 데이터베이스의 모든 인덱스를 재구축한다.
-                func index() { ... }
-
-                // n번째 행을 반환한다.
-                func index(_ n: Int, inTable: TableID) -> TableRow { ... }
-                }
-
-                //반환 값만으로 오버로딩하면 타입 시스템에 혼란이 오게 된다.
-                extension Box {.
-                
-                func value() -> Int? { ... }
-                func value() -> String? { ... }
-                }
-                ```  
-
     2. 매개변수  
         
         * 문서에 맞춰서 매개변수 명을 정하라. - 비록 사용자가 함수나 메소드를 사용할 때 드러나지는 않지만, 설명할때는 중요한 역할을 한다.  
@@ -134,18 +133,6 @@ category: [SwiftBasics]
 
             * 기본 매개변수는 메소드 집합(method families)보다 우선시된다. API를 이해하려난 사람의 인지적 부담을 덜어주기 때문이다.  
 
-                * 좋은 예  
-
-                    ```swift  
-                    extension String {
-                    /// ...description...
-                    public func compare(
-                        _ other: String, options: CompareOptions = [],
-                        range: Range? = nil, locale: Locale? = nil
-                    ) -> Ordering
-                    }
-                    ```  
-
                 * 나쁜 예  
 
                     ```swift
@@ -161,6 +148,18 @@ category: [SwiftBasics]
                     public func compare(
                         _ other: String, options: StringCompareOptions,
                         range: Range, locale: Locale) -> Ordering
+                    }
+                    ```  
+
+                * 좋은 예  
+
+                    ```swift  
+                    extension String {
+                    /// ...description...
+                    public func compare(
+                        _ other: String, options: CompareOptions = [],
+                        range: Range? = nil, locale: Locale? = nil
+                    ) -> Ordering
                     }
                     ```  
 

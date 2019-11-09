@@ -40,7 +40,13 @@ category: [SwiftBasics]
 	1. *명확하게 사용하도록 유도하라*
 		* 필요한 모든 단어를 포함하여 그 이름이 사용된 부분에서의 모호함을 피하라
 			* (추가설명) swift는 매개변수에 레이블을 지정할 수 있고, 이 역시 함수 시그니처의 일부이다.  
-			* 옳은 예시  
+			* 잘못된 예시  
+
+				```swift  
+				employees.remove(x) // 불명확하다. x가 값인가 인덱스인가?
+				```  
+
+		    * 옳은 예시  
 
 				```swift  
 				extension List {
@@ -48,30 +54,9 @@ category: [SwiftBasics]
 				}
 				employees.remove(at: x)//x가 인덱스를 지정하는 것이 명확하다.
 				```  
-
-			* 잘못된 예시  
-
-				```swift  
-				employees.remove(x) // 불명확하다. x가 값인가 인덱스인가?
-				```  
-
 		* 필요없는 단어는 빼라 - 이름에 들어가는 모든 단어는 하나하나가 핵심적인 의미를 전달해야 한다. 의도나 의미를 명확히 하기 위해 더 많은 단어를 사용할 수도 있지만, 사용자가 이미 가지고 있는 정보는 빼야한다. 보통 여기서 빠져야하는 정보는 타입에 대한 정보이다.  
 
 		* 변수,매개변수,연관 타입의 이름은 타입 제약이 아니라 그들의 역할에 맞게 지어줘라.  
-
-			* 옳은 예시  
-
-				```swift
-				//변수명이 코드의 의도를 드러내어준다.  
-				var greeting = "Hello"
-				protocol ViewController {
-				associatedtype ContentView : View
-				}
-				class ProductionLine {
-				func restock(from supplier: WidgetFactory)
-				}
-				```  
-
 			* 잘못된 예시  
 
 				```swift  
@@ -82,6 +67,18 @@ category: [SwiftBasics]
 				}
 				class ProductionLine {
 				func restock(from widgetFactory: WidgetFactory)
+				}
+				```  
+  		    * 옳은 예시  
+
+				```swift
+				//변수명이 코드의 의도를 드러내어준다.  
+				var greeting = "Hello"
+				protocol ViewController {
+				associatedtype ContentView : View
+				}
+				class ProductionLine {
+				func restock(from supplier: WidgetFactory)
 				}
 				```  
 
@@ -113,15 +110,6 @@ category: [SwiftBasics]
 
 	2. *유창하게 쓰려고 노력해라*  
 		* 사용자가 문법에 맞는 영문구처럼 쓸 수 있는 메소드나 함수 이름을 택하라
-
-			* 좋은 예  
-
-				```swift
-				x.insert(y, at: z)// y를 x의 z 위치에 넣는다.  
-				x.subViews(havingColor: y)  //x의 subViews중 color가 y인 뷰
-				x.capitalizingNouns()       //x안의 명사들의 앞글자를 대문자로 만든다.
-				```  
-
 			* 나쁜 예  
 
 				```swift
@@ -131,26 +119,34 @@ category: [SwiftBasics]
 				x.nounCapitalize()
 				```  
 
+			* 좋은 예  
+
+				```swift
+				x.insert(y, at: z)// y를 x의 z 위치에 넣는다.  
+				x.subViews(havingColor: y)  //x의 subViews중 color가 y인 뷰
+				x.capitalizingNouns()       //x안의 명사들의 앞글자를 대문자로 만든다.
+				```  
+
 			* 첫번째나 두번째 인수 이후에는, 해당 인수가 의미상 중심적이지 않다면 유창성이 좀 떨어져도 괜찮다.  
 
 		* [팩토리 메소드](https://en.wikipedia.org/wiki/Factory_method_pattern) 의 앞에는 'make'를 붙여라  
 
 		* 초기화 메소드와 팩토리 메소드의 첫 인수는 함수의 이름과 구를 맞춰서는 안된다. (필자 주 - 해당 메소드들은 설정 값을 넣어서 무언가를 만들어낸다는 느낌이 강해서 이러한 규칙을 정해놓지 않았나 싶다. 자주 호출되기 때문에 간결할 필요도 있었을 것이고.)  
-
-			* 좋은 예  
-
-				```swift
-				let foreground = Color(red: 32, green: 64, blue: 128)
-				let newPart = factory.makeWidget(gears: 42, spindles: 14)
-				let ref = Link(target: destination)	  
-				```  
-
 			* 나쁜 예  
 
 				```swift
 				let foreground = Color(havingRGBValuesRed: 32, green: 64, andBlue: 128)
 				let newPart = factory.makeWidget(havingGearCount: 42, andSpindleCount: 14)
 				let ref = Link(to: destination)
+				```  
+
+			
+			* 좋은 예  
+
+				```swift
+				let foreground = Color(red: 32, green: 64, blue: 128)
+				let newPart = factory.makeWidget(gears: 42, spindles: 14)
+				let ref = Link(target: destination)	  
 				```  
 
 		* 사이드 이펙트를 고려해서 이름을 지어라   
