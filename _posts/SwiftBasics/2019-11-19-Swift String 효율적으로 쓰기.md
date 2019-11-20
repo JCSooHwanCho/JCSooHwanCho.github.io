@@ -103,7 +103,7 @@ Swift의 문자열 타입인 String은 깊은 설계적 고민이 녹아있는 �
   
   2. Index를 여러 번 구해야 할때는, 이전에 구해놓은 인덱스를 재활용해서 연산 수를 줄이는 것이 좋습니다. 무조건 첫 인덱스부터 구하면 불필요한 연산이 많아집니다.  
   
-  3. 만약 String의 글자들에 대한 임의 접근이 반드시 필요하다면, String을 Character의 Array로 바꾸고 작업을 한 뒤 마지막에 String으로 바꿔주는 것도 좋습니다.  
+  3. 만약 String의 글자들에 대한 임의 접근이 반드시 필요하다면, String을 Character의 Array로 바꾸고 작업을 한 뒤 마지막에 String으로 바꿔주는 것도 좋습니다. 또한 문자열을 빈번하게 순회해야 한다면, String.Index보다는 Character Array가 훨씬 효율적입니다.
 
   ```swift
   let str = "Hello, World!"
