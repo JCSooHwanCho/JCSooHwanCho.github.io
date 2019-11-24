@@ -146,7 +146,7 @@ Swift 5.1버젼부터 Property Wrapper라는 기능이 추가 되었습니다. P
     }
     ```  
 
-* **Property Wrapper합성** 
+* **Property Wrapper합성**  
   Property Wrapper는 두개 이상 적용할 수 있습니다. 이 때 교환법칙은 성립하지 않습니다. 또한 합성시에는 각 Property Wrapper의 제한 조건을 만족하는 방향으로 설정이 되어야 합니다.
 
   ```swift

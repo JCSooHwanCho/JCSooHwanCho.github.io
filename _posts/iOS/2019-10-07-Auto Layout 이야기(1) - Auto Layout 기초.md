@@ -68,7 +68,7 @@ category: [iOS]
 
   Constraint의 조합은 유일한 해를 가져야 하는데, 이를 좀 더 쉽게 말하면 모든 뷰의 위치와 크기가 Constraint를 통해 정의될 수 있어야 한다는 것입니다. 이 조건을 만족하는 Constraint 구성은 여러가지가 있을 수 있습니다.
 
-  Auto Layout은 기본적으로 모든 Constraint를 적용해서 계산을 하는데, 이 때 유일한 해를 찾을 수 없을 경우, 에러를 발생시키고 Constraint중 하나를 빼도록 요구합니다. 이럴때 사용할 수 있는 것이 Constraint Priority입니다.
+  Auto Layout은 기본적으로 모든 Constraint를 적용해서 계산을 하는데, 이 때 해를 찾을 수 없을 경우, 에러를 발생시키고 Constraint중 하나를 빼도록 요구합니다. 이럴때 사용할 수 있는 것이 Constraint Priority입니다.
 
   Constraint Priority는 1에서 1000의 값을 가집니다. 1000의 우선순위를 가진 Constraint는 required로 분류되어 무조건적으로 사용되고, 나머지 Priority는 모두 Optional로 분류됩니다. Constraint의 해를 계산할 때, 높은 우선순위부터 낮은 우선순위까지 차례대로 계산해가면서, 올바르지 않은 Constraint는 스킵하고 계산을 이어나갑니다. 하지만 이렇게 스킵된 Constraint가 전혀 영향을 미치지 않는 것은 아닙니다. 마지막까지 계산된 결과에 모호성이 있을경우, 시스템은 스킵된 Constraint를 최대한 만족하는 답을 선택합니다.
 
