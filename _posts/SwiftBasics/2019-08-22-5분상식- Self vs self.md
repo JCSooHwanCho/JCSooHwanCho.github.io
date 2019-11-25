@@ -22,17 +22,17 @@ self는 해당 타입이 값 타입일 경우에는 똑같이 값 타입처럼 �
 
 1. Protocol 내부 : 해당 프로토콜을 채택한 타입을 의미합니다. [enum 더 알아보기](/2019-08-19-enum-더-살펴보기-CaseIterable,-RawPresentable,-메모리구조) 포스트에서 보았던 RawRepresentable 프로토콜의 선언을 예시로 보겠습니다.  
 
-```swift
-public protocol RawRepresentable {
-associatedtype RawValue
+    ```swift
+    public protocol RawRepresentable {
+    associatedtype RawValue
 
-init?(rawValue: Self.RawValue)
+    init?(rawValue: Self.RawValue)
 
-var rawValue: Self.RawValue { get }
-}
-```  
+    var rawValue: Self.RawValue { get }
+    }
+    ```  
 
-여기서 Self를 발견할 수 있습니다. 이 경우는 프로토콜 자신이 아니라 프로토콜을 채택한 타입을 뜻하는 것입니다. 또한 실제로 구현을 할때는 Self를 모두 걷어내야만 합니다.
+    여기서 Self를 발견할 수 있습니다. 이 경우는 프로토콜 자신이 아니라 프로토콜을 채택한 타입을 뜻하는 것입니다. 또한 실제로 구현을 할때는 Self를 모두 걷어내야만 합니다.
 
 1. Class : 메소드 시그니처에서 결과값으로만 사용이 가능합니다. 이 경우 해당 인스턴스의 타입 자체를 나타냅니다. 메소드 몸체에서는 사용할 수 없습니다.
 
