@@ -25,8 +25,7 @@ navbar-links:
     - Basics: "/category/SwiftBasics"
     - iOS: "/category/iOS"
     - RxSwift: "/category/RxSwift"
-  Algorithm: 
-    - Background : "/category/Algorithm"
+  Algorithm: "/category/Algorithm"
   etc:
     - CS: "/category/ComputerScience"
     - Life: "/category/Life"
