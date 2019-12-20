@@ -85,7 +85,7 @@ Swift는 RandomAccessCollection 타입에 대해서 기본 sort() 메소드를 �
         return c >> offset + (c & mask == 0 ? 0 : 1)
         }
         ```
-  2. run 만들기: 이후 non-descending(앞 원소가 뒷 원소보다 크거나 같다) 혹은 strictly descending(앞 원소다 뒷 원소보다 작다) 조건을 만족하는 크기로 배열을 분할합니다. 이후 strictly descending한 경우, 배열을 뒤집는 과정을 거칩니다. 이 때 분할한 배열의 크기가 minRun보다 작은 경우에는 minRun 크기가 되도록 배열을 확장한 뒤, Insertion Sort로 정렬합니다. 이는 최대한 적은 횟수로 머지를 수행하기 위해서는 조각의 크기가 균일해야 하기 때문입니다. 이렇게 만들어진 부분 배열을 Run이라고 하며, 이후 이를 스택에 넣습니다. 실제 구현에서는 배열을 직접 자르는 게 아니라 범위로 나타납니다.
+  2. run 만들기: 이후 non-descending(뒷 원소가 앞 원소보다 크거나 같다) 혹은 strictly descending(뒷 원소가 앞 원소보다 작다) 조건을 만족하는 크기로 배열을 분할합니다. 이후 strictly descending한 경우, 배열을 뒤집는 과정을 거칩니다. 이 때 분할한 배열의 크기가 minRun보다 작은 경우에는 minRun 크기가 되도록 배열을 확장한 뒤, Insertion Sort로 정렬합니다. 이는 최대한 적은 횟수로 머지를 수행하기 위해서는 조각의 크기가 균일해야 하기 때문입니다. 이렇게 만들어진 부분 배열을 Run이라고 하며, 이후 이를 스택에 넣습니다. 실제 구현에서는 배열을 직접 자르는 게 아니라 범위로 나타납니다.
   
   3. Merge 혹은 다음 Run 구하기: 스택에 Run이 쌓였을 때, 이를 바로 Merge할 지 말지를 결정해야 합니다. swift의 TimSort에서는 다음과 같은 전략을 취합니다.
         

@@ -14,7 +14,7 @@ category: [SwiftBasics]
 | :--: |
 |코드가 잘 돌아가길 기도하는 모습이다.[출처](http://m.inven.co.kr/board/powerbbs.php?come_idx=2097&l=1012127)|
 
-그래서 코딩 컨벤션을 정해놓고 잘 지키는 게 중요하다. 혼자 읽을 코드라면야 혼자서 규칙 정해놓고 잘 하면 되겠지만, 여러 사람이 읽을 코드라면 규칙을 합의해놓고 쓰는 게 중요하다. 이 규칙은 여러가지가 있을 지만 필자는 swift 코딩을하기 때문에, 그 중 가장 기반이 될 만한 문서인 [swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)를 읽어보고자 한다. API 디자인에 관한 문서이지만 API라는 것도 "반복적으로 사용되는 코드의 집합"이라고 생각하면 평소에 코드를 짤 때에도 이 규칙들은 유효하다.
+그래서 코딩 컨벤션을 정해놓고 잘 지키는 게 중요하다. 혼자 읽을 코드라면야 혼자서 규칙 정해놓고 잘 하면 되겠지만, 여러 사람이 읽을 코드라면 규칙을 합의해놓고 쓰는 게 중요하다. 이 규칙은 여러가지가 있을 수 있지만 필자는 swift 코딩을하기 때문에, 그 중 가장 기반이 될 만한 문서인 [swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)를 읽어보고자 한다. API 디자인에 관한 문서이지만 API라는 것도 "반복적으로 사용되는 코드의 집합"이라고 생각하면 평소에 코드를 짤 때에도 이 규칙들은 유효하다.
 
  **이 글은 본문의 내용을 최대한 그대로 옮기는 것을 중점으로 삼으며, 부가적인 설명이나 필자의 의견이 들어가는 부분은 따로 표시하여 서술합니다. 모든 예시는 API 가이드의 예시를 가져왔습니다**
 
@@ -30,7 +30,7 @@ category: [SwiftBasics]
 
 	* 모든 선언에 대해서 문서화된 주석을 남기라. - 문서를 작성하면 서 얻는 통찰은 API에 있어서 깊은 영향력을 가진다. 그러니까 미루지말라.(만약 API의 기능에 대해서 쉽게 설명하지 못한다면, **API디자인이 잘못됐을 가능성이 있다.**
 		* Swift의 마크다운 방언을 사용하면 Xcode에서 이를 해석해 API 사용시 자동으로 설명과 용법을 띄워준다.[Markup Formatting Reference](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/)
-		*  선언된 요소에 대한 요약(summary)로 시작하라. API는 종종 선언과 요약만으로 완전히 이해되는 경우가 많다.
+		*  선언된 요소에 대한 요약(summary)으로 시작하라. API는 종종 선언과 요약만으로 완전히 이해되는 경우가 많다.
 		* 추가적인 옵션이 필요하다면 한개 이상의 문단으로 서술해라. 문단은 빈 줄로 구분되며 완전한 문장들을 사용한다.  
 		* (Xcode가)인식할 수 있는 심볼들을 때에 맞춰 적절히 사용하라. (자세한 것은 [여기](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/MarkupFunctionality.html#//apple_ref/doc/uid/TP40016497-CH54-SW1)를 참조하자)  
 

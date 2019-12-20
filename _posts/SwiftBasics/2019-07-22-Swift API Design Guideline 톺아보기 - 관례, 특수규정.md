@@ -131,7 +131,7 @@ category: [SwiftBasics]
                 let order = lastName.compare(royalFamilyName)
                 ```  
 
-            * 기본 매개변수는 메소드 집합(method families)보다 우선시된다. API를 이해하려난 사람의 인지적 부담을 덜어주기 때문이다.  
+            * 기본 매개변수는 메소드 집합(method families)보다 우선시된다. API를 이해하려는 사람의 인지적 부담을 덜어주기 때문이다.  
 
                 * 나쁜 예  
 
