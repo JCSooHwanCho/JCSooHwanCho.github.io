@@ -62,8 +62,6 @@ category: [iOS]
         * Category/Extension: 프로퍼티 관련 extension파일만 자동으로 추가시켜 줍니다. 즉, 클래스 선언에는 사용자가 원하는 로직을 자유롭게 추가할 수 있습니다.
 
     7. Constraint: attribute를 콤마로 구분해서 입력해서 해당 attribute들에 유일성 제약을 겁니다. 만약 제약이 걸린 attribute들의 값이 동일한 값이 들어오면, merge정책에 따라 기존 데이터를 덮어쓰거나 아예 저장이 안 될 수도 있습니다. 
-
-      > Core Data는 context를 저장하고 합칠 때 유일성을 체크합니다. 컨텍스트에 값을 넣을때는 유일성을 검사하지 않는다는 점을 주의해야 합니다.
     
   2. attribute설정  
     attribute는 객체가 가지는 데이터의 타입과 제약조건을 나타냅니다. entity가 클래스라면, attribute는 프로퍼티에 해당합니다. attribute를 추가하기 위해서는 attribute 항목의 + 버튼을 누르거나, 맨 아래 Add Attribute 버튼을 누르면 됩니다. attribute는 Entity내에서 고유한 이름을 가져야 하며, 타입 역시 명시해줘야 합니다. 예제에서는 다음과 같이 Person Entity를 선언하고, id와 name이라는 attribute를 만들겠습니다.  
