@@ -21,7 +21,7 @@ category: [SwiftBasics]
   Publisher 프로토콜은 또한 extension으로 많은 Operator들을 정의하고 있습니다. 이 Operator에 대해서는 다른 포스트에서 좀 더 자세히 알아보도록 하겠습니다.
 
 * Publisher 만들기  
-  Apple은 Publisher를 커스텀해서 만드는 것을 권장하지 않습니다. 실제로 Publisher 프로토콜을 구현하기 위해서는 그에 맞는 Subscription 타입을 구현을 해줘야 되고, 이 Subscription 구현을 제대로 하려면 신경 써줘야 될 부분이 좀 있기 때문입니다. 따라서 다음과 같은 방법을 권장합니다.
+  Apple은 Publisher를 커스텀해서 만드는 것을 권장하지 않습니다. 실제로 Publisher 프로토콜을 구현하기 위해서 신경쓸 부분도 있고, 그에 맞는 Subscription 타입 또한 구현을 제대로 하려면 신경 써줘야 될 부분이 좀 있기 때문입니다. 따라서 다음과 같은 방법을 권장합니다.
 
   * [Subject](https://developer.apple.com/documentation/combine/subject)의 구체 타입인 [PassthroughSubject](https://developer.apple.com/documentation/combine/passthroughsubject)와 [CurrentValueSubject](https://developer.apple.com/documentation/combine/currentvaluesubject)을 활용합니다. 이 Subject는 외부에서 값을 손쉽게 주입할 수 있는 Publisher의 일종입니다.
   

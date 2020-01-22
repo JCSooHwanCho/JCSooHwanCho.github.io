@@ -113,7 +113,7 @@ Opaque Type은 구체적인 타입을 숨기고, 해당 타입이 채택하고 �
     ```swift
     let flippedTriangle = flip(smallTriangle)
     let sameThing = flip(smallTriangle)
-    protoFlippedTriangle == sameThing  // Error! == 메소드가 없습니다.
+    flippedTriangle == sameThing  // Error! == 메소드가 없습니다.
     ```  
 
     프로토콜로 타입 반환을 받으면, 해당 타입에 대한 정보를 이용할 수 없고, 프로토콜의 일부 인터페이스 만 이용할 수 있게 되는 문제가 생기게 됩니다. Shape에 Equatable을 추가할라고 쳐도 타입 정보를 이용할 수 없기 때문에, 자기 자신의 타입 정보가 필요한 == 메소드를 제대로 호출할 수 조차 없습니다.  
