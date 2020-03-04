@@ -50,7 +50,7 @@ category: [iOS]
 
     // NSPointerArray 사용
     let arr = NSPointerArray.weakObjects() // 약한 참조를 가지는 Pointer배열
-    let p = Unmanaged.passUnretained(number).toOpaque() // 약한 참조를 가지는 포인터, 이 포인터는 ARC 제외되기 때문에 Retain을 시도할 경우
+    let p = Unmanaged.passUnretained(number).toOpaque() // 약한 참조를 가지는 포인터
 
     arr.addPointer(p)
 
