@@ -6,7 +6,7 @@ tags: [iOS 프로그래밍,Swift,Apple]
 category: [iOS]
 ---  
 
-이번 포스트에서는 Foundation이 제공하는 Collection중에서 특별한 기능을 가진 Collection에 대해서 알아보도록 하겠습니다. 여기서 특별한 Collection이라고 하는 것은 Swift 표준 라이브러리가 제공하는 Collection인 Array와 Set, Dictionary와 이에 대응되는 Foundation 클래스인 NSArray, NSSet, NSDictionary 그리고 이들의 Mutable 버젼 이외의 추가적으로 제공되는 Collection들을 이야기합니다. 특별한 Collection들은 기존 Collection들에서 추가 기능을 더하거나
+이번 포스트에서는 Foundation이 제공하는 Collection중에서 특별한 기능을 가진 Collection에 대해서 알아보도록 하겠습니다. 여기서 특별한 Collection이라고 하는 것은 Swift 표준 라이브러리가 제공하는 Collection인 Array와 Set, Dictionary와 이에 대응되는 Foundation 클래스인 NSArray, NSSet, NSDictionary 그리고 이들의 Mutable 버젼 이외의 추가적으로 제공되는 Collection들을 이야기합니다. 특별한 Collection들은 기존 Collection들에서 추가적인 속성을 더한 것들입니다.
 
 * **NSCountedSet**  
   Set은 Set인데, 중복되는 원소가 1개이상 들어갈 수 있는 Set입니다. NSMutableSet을 상속받아 만들어져서 기본적인 속성은 NSMutableSet과 동일합니다. 추가적인 이해를 위해 좀 더 살펴보면, NSSet 계열은 원소의 타입이 Any라 어떠한 원소든 타입에 관계없이 넣을 수 있습니다. 다만 값타입의 경우는 Hashable을 채택하지 않으면 중복 체크가 불가능하여 중복된 원소도 그대로 들어가게 됨에 유의해야 합니다. 특징적인 인터페이스는 [count(for:)](https://developer.apple.com/documentation/foundation/nscountedset/1408658-count)로, 특정 객체가 존재하는 수를 반환합니다. 이때 2 이상의 수가 반환된다고 해서 객체가 2개 이상 존재하는 것이 아님에 유의해야 합니다. 동일한 객체는 여전히 1개만 존재할 수 있습니다. 단지 카운트 개념이 추가되어서 카운트가 0이 되었을때만 실제로 Set에서 원소가 사라지는 것입니다.
