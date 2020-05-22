@@ -22,7 +22,7 @@ category: [iOS]
   }
   ```  
 
-  보다시피 NSString을 제외하고는 모두 CoreFoundation의 객체들을 그대로 사용하고 있습니다. 우선 _CFInfo는 CoreFoundation객체의 [isa](https://developer.apple.com/documentation/objectivec/id/1418809-isa?language=objc)(deprecatede된 것은 애플에서 이 값을 직접 참조하지 못하게 막은 것 뿐입니다.), 레퍼런스 카운트 등의 중요한 정보를 가지고 있는 객체입니다. 이는 곧 이 NSAttributedString이 사실상 CoreFoundation 객체임을 의미합니다. 실제로 NSAttributedString은 CFAttributedString으로 무비용 연결([Toll-free-bridge](https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/Toll-FreeBridgin/Toll-FreeBridgin.html))이 가능한 객체입니다.  
+  보다시피 NSString을 제외하고는 모두 CoreFoundation의 객체들을 그대로 사용하고 있습니다. 우선 _CFInfo는 CoreFoundation객체의 [isa](https://developer.apple.com/documentation/objectivec/id/1418809-isa?language=objc)(deprecated된 것은 애플에서 이 값을 직접 참조하지 못하게 막은 것 뿐입니다.), 레퍼런스 카운트 등의 중요한 정보를 가지고 있는 객체입니다. 이는 곧 이 NSAttributedString이 사실상 CoreFoundation 객체임을 의미합니다. 실제로 NSAttributedString은 CFAttributedString으로 무비용 연결([Toll-free-bridge](https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/Toll-FreeBridgin/Toll-FreeBridgin.html))이 가능한 객체입니다.  
   string은 보다시피 문자열 데이터이고, 중요한 것은  _attributeArray의 정체입니다. 이 프로퍼티의 타입은 'CFRunArrayRef'라는 굉장히 낮선 타입입니다. 이 타입에 대해서 더 자세히 알아보겠습니다. CFRunArrayRef는 CFRunArray의 참조를 의미하고, CFRunArray 타입은 CoreFoundation에서 __CFRunArray 타입에 매칭되게 됩니다.
 
   ```c
@@ -45,7 +45,7 @@ category: [iOS]
     } CFRunArrayItem; /* CFRunArray이 실제로 담고 있는 아이템 */
   ```  
 
-  즉, 각 원소가 차지하는 길이(비중)이 다른 배열입니다. 특정 객체는 1의 길이 만큼을 가질수도 있고, 2 혹은 그 이상의 길이를 가질 수 있습니다. 이는 곧 문자열의 맨 앞에서부터 시작해서, 어느정도의 길이만큼 해당 Attribute를 적용할지를 의미합니다. 이때 한 글자에 여러개의 Attributes가 적용될 수 있기 때문에, CFRunArrayItem이 가지는 객체의 타입은 [NSAttributedString.Key: Any] 타입의 Dictionary(정확히는 CFDictionay)입니다. Any 타입은 Attribute로 사용할 수 있는 객체의 타입이 정해져 있지 않다는 것을 의미합니다. 따라서 어떠한 객체라도 들어갈 수 있습니다. 다만, 표준에서 제공하는 Key들은 특정한 타입의 객체(정확히는 특정 메시지를 이해할 수 있는 객체)를 요구하고, 이를 지키지 않으면 크래시가 나기 때문에 이를 반드시 문서와 검색을 통해 확인해야 합니다. ([참조1](https://developer.apple.com/documentation/foundation/nsattributedstring/key), [참조2](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/AttributedStrings/Articles/standardAttributes.html#//apple_ref/doc/uid/TP40004903-SW2))
+  즉, 각 원소가 차지하는 길이(비중)이 다른 배열입니다. 특정 객체는 1의 길이 만큼을 가질수도 있고, 2 혹은 그 이상의 길이를 가질 수 있습니다. 이는 곧 문자열의 맨 앞에서부터 시작해서, 어느정도의 길이만큼 해당 Attribute를 적용할지를 의미합니다. 이때 한 글자에 여러개의 Attributes가 적용될 수 있기 때문에, CFRunArrayItem이 가지는 객체의 타입은 [NSAttributedString.Key: Any] 타입의 Dictionary(정확히는 CFDictionary)입니다. Any 타입은 Attribute로 사용할 수 있는 객체의 타입이 정해져 있지 않다는 것을 의미합니다. 따라서 어떠한 객체라도 들어갈 수 있습니다. 다만, 표준에서 제공하는 Key들은 특정한 타입의 객체(정확히는 특정 메시지를 이해할 수 있는 객체)를 요구하고, 이를 지키지 않으면 크래시가 나기 때문에 이를 반드시 문서와 검색을 통해 확인해야 합니다. ([참조1](https://developer.apple.com/documentation/foundation/nsattributedstring/key), [참조2](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/AttributedStrings/Articles/standardAttributes.html#//apple_ref/doc/uid/TP40004903-SW2))
   
   지금까지 설명한 구조를 도식화하면 다음과 같습니다.
 
@@ -54,7 +54,7 @@ category: [iOS]
   여기서 Range를 표현하는 방식은 NSRange입니다.(익숙하지 않으시다면 [NSRange와 Range](../2019-11-17-NSRange와-Range/) 포스트를 참조해주세요) 같은 Attribute를 가질 경우에는 최대한 한 덩어리로 취급하며, Attribute 구성이 달라지는 경우에 분리가 됩니다. Attribute가 없는 부분은 빈 Dictionary로 나타내어, Attributes 배열이 문자열 전체를 빠짐없이 커버합니다. 이때 Attributes가 동일하다고 판단되기 위해서는 NSObject의 isEqual 메소드로 비교했을 때 true여야 하며, 이때는 동일한 Attribute가 부분부분 적용 되어 있어도 동일한 객체를 공유하여 같은 값을 가진 객체가 중복하여 생기지 않도록 메모리를 최적화합니다. 때문에 커스텀 타입을 attribute로 사용하려면 NSObject를 상속받고 isEqual 메소드를 오버라이드 해야 동일한 값임을 프레임워크가 판단하고 최적화할 수 있습니다. 또한 swift의 값타입을 Attribute로 사용하려고 한다면 반드시 Hashable을 채택해서 불필요한 객체가 여러개 생기지 않도록 해줘야 합니다(그 이유는 [Foundation의 Swift 타입 브릿징](../2020-03-01-Foundation에서의-Swift-타입-브릿징)을 참조해주세요)
 
 * **NSAttributedString의 사용법**  
-   NSAttributedString은 String과 Attribute가 담긴 Dictionary를 통해 초기화 하는 방법이 일반적입니다. 다만 이 방법으로는 복잡한 AttritbutedString은 초기화가 안됩니다.
+   NSAttributedString은 String과 Attribute가 담긴 Dictionary를 통해 초기화 하는 방법이 일반적입니다. 다만 이 방법으로는 복잡한 AttributedString 초기화가 안됩니다.
 
    ```swift
    init(string str: String, attributes attrs: [NSAttributedString.Key : Any]? = nil)
@@ -90,7 +90,7 @@ category: [iOS]
 
    using은 attribute를 순회하면서 사용할 클로저인데, 인자로 Attribute Dictionary 혹은 Attribute 객체, 해당 attribute가 적용되는 범위, 순회를 계속할지를 결정하기 위한 inout Bool이 주어집니다. 특정 Attribute를 지정하여 순회할 경우, 파편화 되어 있는 객체들을 비교해서 같다면 하나로 합쳐서 범위를 반환해줍니다.
 
-   NSAttributedString의 Mutable 버전은 여기에 더해서 글자를 바꾸거나([replaceCharacters](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1418451-replacecharacters)), 지우고([deleteCharacters](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1410610-deletecharacters)), Attribute를 덮어씌우거나([setAttributes](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1412179-setattributes)) 추가([addAttributee](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1414304-addattributes)), 삭제([removeAttributes](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1409691-removeattribute)) 등을 할 수 있는 기능을 제공해줍니다. 다만 이러한 작업은 구조를 생각해보면 Dictionary를 자르고 합치는 연산이 많이 필요한 굉장히 번거로고 연산량이 많은 작업입니다. 그렇기 때문에 이러한 변경들을 모아서 한꺼번에 처리할 수 있도록 그룹화 해주는 [beginEditing](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1411853-beginediting), [endEditing](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1411853-beginediting) 쌍을 제공해줍니다.
+   NSAttributedString의 Mutable 버전은 여기에 더해서 글자를 바꾸거나([replaceCharacters](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1418451-replacecharacters)), 지우고([deleteCharacters](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1410610-deletecharacters)), Attribute를 덮어씌우거나([setAttributes](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1412179-setattributes)) 추가([setAttributes](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1414304-addattributes)), 삭제([removeAttributes](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1409691-removeattribute)) 등을 할 수 있는 기능을 제공해줍니다. 다만 이러한 작업은 구조를 생각해보면 Dictionary를 자르고 합치는 연산이 많이 필요한 굉장히 번거로고 연산량이 많은 작업입니다. 그렇기 때문에 이러한 변경들을 모아서 한꺼번에 처리할 수 있도록 그룹화 해주는 [beginEditing](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1411853-beginediting), [endEditing](https://developer.apple.com/documentation/foundation/nsmutableattributedstring/1411853-beginediting) 쌍을 제공해줍니다.
 
 * **정리**  
   NSAttributedString은 Apple이 제공하는 Text 처리 프레임워크들에서 핵심적인 위치를 차지하고 있습니다. 이번 포스트에서 소개한 것 이외에도 굉장히 방대한 기능들을 제공해주고 있기 때문에, 이러한 기능들은 차후 기회가 되는대로 살펴보도록 하겠습니다.
