@@ -251,8 +251,9 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (= 197)
+  jekyll (~> 3.7)
   jekyll-category-pages
   jekyll-paginate
 
 BUNDLED WITH
-   2.0.2
+   2.1.2
